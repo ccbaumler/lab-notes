@@ -16,7 +16,7 @@ jobs:
     outputs:
       docs_changed: ${{ steps.check_file_changed.outputs.docs_changed }}
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         # Checkout as many commits as needed for the diff
         fetch-depth: 2
@@ -40,7 +40,7 @@ jobs:
     if: needs.conditional_job_check_files.outputs.docs_changed == 'True'
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Extract Markdown links and update index.md
       run: |
