@@ -1,32 +1,43 @@
 # lab-notes
 A simple, easy lab notebook website
 
-> - Note: Consider integrating your HackMD or Obsidian with your GitHub account. This ***could*** make formatting each of your markdown files a simpler task.
-> - Check out [Issue #1](https://github.com/ccbaumler/lab-notes-template/issues/1)
+> - Note: Consider integrating your HackMD or Obsidian with your GitHub account. This ***could*** make formatting each of your markdown files a simpler task. Check out [Issue #1](https://github.com/ccbaumler/lab-notes-template/issues/1) for more detailed information.
 
-## Intended Use
+## Intended usage
+
+To automatically update a simple website with your markdown documents!
+
+That's it.... Thanks?
+
+## Set up
+
 To create your own website!
 
-Start by:
-
 1. Fork this repo as `lab-notes`
-2. Click `Settings` > `Pages`
-3. In the `Source` dropdown, select `Deploy from a branch`
-4. In the `Branch` dropdown, select `main` then click `Save`
-5. Update the title in `index.md` with `<YourName>'s Lab Notebook`
+   > When forking you have the option of renaming the fork. Rename your fork to remove `_templates` from its name for a simpler URL.
+3. Click `Settings` > `Pages`
+4. In the `Source` dropdown, select `Deploy from a branch`
+5. In the `Branch` dropdown, select `main` then click `Save`
+6. There is now a `Your site is live at` followed by a URL!
+   > Note: You may need to refresh the page.
+7. Head back to `<> Code`, in the upper right hand corner there is an `About` section
+   1. Click the `Settings` (Actually looks like this -> ⚙️)
+   2. Toggle the checkbox under `Website` that says `Use your GitHub Pages website`
+8. Update the title yaml header in the `index.md` file with your name
+   i. Something like `<YourName>'s Lab Notebook` (e.g. `Brenda's Lab Notebook`)
 
-To update your website with your markdown documents:
+## How to use
 
-1. Consider removing the template file in the `docs` directory... or don't and just delete it.
-2. Add any number of your own **markdown** documents the `docs` directory
-   - The document file name should not contain any whitespaces and must end in `.md`
-   	- ~~no whitespaces in file names.md~~
-   	- ~~must-contain-.-md-at-the-end~~
-   - 2024-week-1.md
+The idea was a straight-forward one when I thought this up. Each markdown document added to the `docs` directory will become a link on your website. Each link will take you to the rendered markdown document on a new nested website. The trick was to automate this! (For those interested in Github Actions as an automation tool, check out the [.github/workflows/update_index.yaml](https://github.com/ccbaumler/lab-notes-template/blob/main/.github/workflows/update_index.yaml) file!)
 
-Each markdown document added to the `docs` directory will become a link on your webpage landing page. Each link will take you to the rendered markdown document.
+1. Consider removing the `notes-template.md` file in the `docs` directory... or don't and just keep it and update it in to a template that works for you.
+2. Add any number of your own **markdown** documents to the `docs` directory
+   - **The document file name must not contain any whitespaces and must end in `.md`**
+   	   - Whitespaces in filename will not work! (eg. `whitespaces in file names.md`)
+   	   - Filename must contain `.md` at the end! (eg. `must-contain-.-md-at-the-end`)
+         - Name the files similar to this `2024-week-1.md`.
 
-A basic document template:
+## A basic document template:
 
 ```
 ---
