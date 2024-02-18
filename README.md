@@ -35,9 +35,11 @@ The idea was a straight-forward one when I thought this up. Each markdown docume
    - **The document file name must not contain any whitespaces and must end in `.md`**
    	   - Whitespaces in filename will not work! (eg. `whitespaces in file names.md`)
    	   - Filename must contain `.md` at the end! (eg. `must-contain-.-md-at-the-end`)
-         - Name the files similar to this `2024-week-1.md`.
+     - Name the files similar to this -> `2024-week-1.md`.
+3. The contents of the document will be [rendered as markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+4. If you want to have unique titles for each document, include a yaml header with `title:`. See the template below.
 
-## A basic document template:
+## A basic document template for you (specifically)
 
 ```
 ---
@@ -78,7 +80,7 @@ example:
 Nothing additional to comment this week. Work has been taken allot of my time this week. It's finals, I was not able to complete the goals I thought I would. I got a new hamster and it is very fluffy.
 ```
 
-## Resources
+## Resources (ie. The things I looked at to avoid other work and how I figured out how to do this!)
 
 1. [github actions commit bot](https://github.com/orgs/community/discussions/26560#discussioncomment-3531273)
 2. [github markdown syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
