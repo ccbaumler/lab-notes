@@ -37,7 +37,7 @@ jobs:
   conditional_update_index_job:
     runs-on: 'ubuntu-20.04'
     needs: [ conditional_job_check_files ]
-    if: needs.conditional_job_check_files.outputs.docs_changed == 'True'
+    if: ${{ needs.conditional_job_check_files.outputs.docs_changed }} == 'True'
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
