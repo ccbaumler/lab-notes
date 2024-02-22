@@ -32,6 +32,7 @@ jobs:
         $HasDiff = $SourceDiff.Length -gt 0
 
         # Set the output named "docs_changed"
+        Write-Output "$HasDiff, The index.md should be changed."
         Write-Output "docs_changed=$HasDiff" >> $env:GITHUB_OUTPUT
 
   # Run the job only with "docs_changed" equals "True"
