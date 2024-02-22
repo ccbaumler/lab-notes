@@ -20,8 +20,9 @@ jobs:
       with:
         # Checkout as many commits as needed for the diff
         fetch-depth: 2
-    - shell: pwsh
+
     - id: check_file_changed
+    - shell: pwsh
       run: |
         # Diff HEAD with the previous commit
         $diff = git diff --name-only HEAD^ HEAD
