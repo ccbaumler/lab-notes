@@ -41,19 +41,15 @@ jobs:
     needs: conditional_job_check_files
     if: ${{ needs.conditional_job_check_files.outputs.docs_changed }} == True
     steps:
-    #- name: Checkout repository
-    #  uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
     - name: Extract Markdown links and update index.md
       run: |
-        find docs -type f -name "*.md" > links.txt
+        find ./docs -type f -name "*.md" > links.txt
         awk -F/ '{gsub(/\.md$/, ""); gsub(/ /, "\\ "); printf "[%s](%s)\n", $NF, $0}' links.txt > tmp && mv tmp links.txt
         awk 'BEGIN{p=1} /^## Notes/{print "## Notes"; while(getline < "links.txt") {print; print "\n"}; p=0} p' index.md > temp_index.md && mv temp_index.md index.md
         rm links.txt
-
-
-    - name: Checkout repository
-      uses: actions/checkout@v4
 
     - name: commit
       run: |
