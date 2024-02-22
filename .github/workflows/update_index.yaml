@@ -22,7 +22,7 @@ jobs:
         fetch-depth: 2
 
     - id: check_file_changed
-    - shell: pwsh
+      shell: pwsh
       run: |
         # Diff HEAD with the previous commit
         $diff = git diff --name-only HEAD^ HEAD
