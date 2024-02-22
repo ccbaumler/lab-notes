@@ -32,7 +32,7 @@ jobs:
         $HasDiff = $SourceDiff.Length -gt 0
 
         # Set the output named "docs_changed"
-        Write-Host "docs_changed=$HasDiff" >> "$env:GITHUB_OUTPUT"
+        Write-Output "docs_changed=$HasDiff" >> $env:GITHUB_OUTPUT
 
   # Run the job only with "docs_changed" equals "True"
   conditional_update_index_job:
