@@ -14,14 +14,14 @@ jobs:
     runs-on: 'ubuntu-20.04'
     # Declare outputs for next jobs
     outputs:
-      docs_changed: ${{ steps.check_file_changed.outputs.docs_changed }}
+      docs_cond: ${{ steps.check_file_changed.outputs.docs_changed }}
     steps:
     - uses: actions/checkout@v4
       with:
         # Checkout as many commits as needed for the diff
         fetch-depth: 2
     - shell: pwsh
-    - id: check_file_changed
+      id: check_file_changed
       run: |
         # Diff HEAD with the previous commit
         $diff = git diff --name-only HEAD^ HEAD
@@ -44,7 +44,7 @@ jobs:
 
     - name: Extract Markdown links and update index.md
       run: |
-        if [  ${{ needs.conditional_job_check_files.outputs.docs_changed }} == 'True' ]; then
+        if [  ${{ needs.conditional_job_check_files.outputs.docs_cond }} == 'True' ]; then
           find docs -type f -name "*.md" > links.txt
           awk -F/ '{gsub(/\.md$/, ""); gsub(/ /, "\\ "); printf "[%s](%s)\n", $NF, $0}' links.txt > tmp && mv tmp links.txt
           awk 'BEGIN{p=1} /^## Notes/{print "## Notes"; while(getline < "links.txt") {print; print "\n"}; p=0} p' index.md > temp_index.md && mv temp_index.md index.md
