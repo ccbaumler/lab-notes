@@ -36,11 +36,11 @@ jobs:
   # Run the job only with "docs_changed" equals "True"
   conditional_update_index_job:
     runs-on: 'ubuntu-20.04'
-    needs: [ conditional_job_check_files ]
+    needs: conditional_job_check_files
     #if: ${{ needs.conditional_job_check_files.outputs.docs_changed == 'True' }}
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+    #- name: Checkout repository
+    #  uses: actions/checkout@v4
 
     - name: Extract Markdown links and update index.md
       run: |
@@ -50,6 +50,9 @@ jobs:
           awk 'BEGIN{p=1} /^## Notes/{print "## Notes"; while(getline < "links.txt") {print; print "\n"}; p=0} p' index.md > temp_index.md && mv temp_index.md index.md
           rm links.txt
         fi
+
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
     - name: commit
       run: |
